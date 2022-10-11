@@ -1,8 +1,10 @@
 # Distilling Causal Effect from Miscellaneous Other-Class for Continual Named Entity Recognition (EMNLP2022)
 
 This repo provides the source code of our paper: [Distilling Causal Effect from Miscellaneous Other-Class for Continual Named Entity Recognition (EMNLP 2022)](https://arxiv.org/abs/2210.03980).
-![Other-Class Samples in Continual NER](imgs/other-class.png)
-![The architecture of the proposed method (CFNER)](imgs/model_architecture.pdf)
+
+<img src="imgs/other-class.png" width = "600" alt="Other-Class in Continual NER" align=center />
+
+<img src="imgs/model_architecture.png" width = "1200" alt="The architecture of the proposed method (CFNER)" align=center />
 
 ## Overview of the directory
 - *config/* : the directory of configurations for each models
