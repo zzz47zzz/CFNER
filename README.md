@@ -112,7 +112,7 @@ Then, the results as well as the model checkpoint will be saved automatically in
 | **Ours**          | 80.91         | 79.11 | 80.83         | 75.20 |
 
 
-If you find the code useful, please cite the work
+If you find the code useful, please consider citing this work
 ```
-https://arxiv.org/abs/2210.03980
+Zheng J, Liang Z, Chen H, et al. Distilling Causal Effect from Miscellaneous Other-Class for Continual Named Entity Recognition[J]. arXiv preprint arXiv:2210.03980, 2022.
 ```
