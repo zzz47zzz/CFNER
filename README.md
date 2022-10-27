@@ -114,5 +114,10 @@ Then, the results as well as the model checkpoint will be saved automatically in
 
 If you find the code useful, please consider citing this work
 ```
-Zheng J, Liang Z, Chen H, et al. Distilling Causal Effect from Miscellaneous Other-Class for Continual Named Entity Recognition[J]. arXiv preprint arXiv:2210.03980, 2022.
+@article{zheng2022distilling,
+  title={Distilling Causal Effect from Miscellaneous Other-Class for Continual Named Entity Recognition},
+  author={Zheng, Junhao and Liang, Zhanxian and Chen, Haibin and Ma, Qianli},
+  journal={arXiv preprint arXiv:2210.03980},
+  year={2022}
+}
 ```
