@@ -293,7 +293,7 @@ class BaseTrainer(object):
         # print(logits_prob[ce_mask.flatten()])
         logits_prob_joint = (logits_prob[ce_mask.flatten()]+logits_prob_match)/2
 
-        ce_loss = F.nll_loss(torch.log(logits_prob_joint), labels[ce_mask])
+        ce_loss = F.nll_loss(torch.log(logits_prob_joint+1e-10), labels[ce_mask])
 
         return ce_loss
 
@@ -345,7 +345,7 @@ class BaseTrainer(object):
             # Compute KL divergence of distributions
             # 1.log(joint_distribution)
             joint_old_class_score_all[defined_O_curricumlum_mask] = (old_class_score_all[defined_O_curricumlum_mask]+O_logits_prob_match[curriculum_mask])/2
-            joint_old_class_score = torch.log(joint_old_class_score_all[distill_mask]).view(-1, refer_dims)
+            joint_old_class_score = torch.log(joint_old_class_score_all[distill_mask]+1e-10).view(-1, refer_dims)
             # 2.ref_distribution
             # Sharpen the effect of the define O samples
             cl_temperature = self.get_cl_temperature(self.epoch)
@@ -364,7 +364,7 @@ class BaseTrainer(object):
             # print(O_logits_prob_match)
             # print(old_class_score_all[defined_O_mask])
             joint_old_class_score_all[defined_O_mask] = (old_class_score_all[defined_O_mask]+O_logits_prob_match)/2
-            joint_old_class_score = torch.log(joint_old_class_score_all[distill_mask]).view(-1, refer_dims)
+            joint_old_class_score = torch.log(joint_old_class_score_all[distill_mask]+1e-10).view(-1, refer_dims)
             # 2.ref_distribution
             refer_logits[defined_O_mask] /= 1e-10 # Equals to applying CE to defined O samples, others is KLDivLoss
             ref_old_class_score = F.softmax(
