@@ -2,6 +2,7 @@
 
 This repo provides the source code for our method 
 * [CFNER](https://arxiv.org/abs/2210.03980) : a causal framework for Continual Named Entity Recognition
+
 Besides, we also provide re-implementation of the following methods for a fair comparison:
 * Self-Training (ST) ： ST first utilizes the old model to annotate the Other-class tokens with old entity types. Then, the new model is trained on new data with annotations of all entity types. Finally, the cross-entropy loss on all entity types is minimized.
 * [ExtendNER](https://ojs.aaai.org/index.php/AAAI/article/view/17600): ExtendNER has a similar idea to ST, except that the old model provides the soft label (i.e., probability distribution) of Other-class tokens. Specifically, the cross-entropy loss is computed for entity types’ tokens, and KL divergence loss is computed for Other-class tokens. During training, the sum of cross-entropy loss and KL divergence loss is minimized.
