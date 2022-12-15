@@ -1,10 +1,16 @@
 # Distilling Causal Effect from Miscellaneous Other-Class for Continual Named Entity Recognition (EMNLP2022)
 
-This repo provides the source code of our paper: [Distilling Causal Effect from Miscellaneous Other-Class for Continual Named Entity Recognition (EMNLP 2022)](https://arxiv.org/abs/2210.03980).
+This repo provides the source code for our method 
+* [CFNER](https://arxiv.org/abs/2210.03980) : a causal framework for Continual Named Entity Recognition
+Besides, we also provide re-implementation of the following methods for a fair comparison:
+* Self-Training (ST) ： ST first utilizes the old model to annotate the Other-class tokens with old entity types. Then, the new model is trained on new data with annotations of all entity types. Finally, the cross-entropy loss on all entity types is minimized.
+* [ExtendNER](https://ojs.aaai.org/index.php/AAAI/article/view/17600): ExtendNER has a similar idea to ST, except that the old model provides the soft label (i.e., probability distribution) of Other-class tokens. Specifically, the cross-entropy loss is computed for entity types’ tokens, and KL divergence loss is computed for Other-class tokens. During training, the sum of cross-entropy loss and KL divergence loss is minimized.
+* [LUCIR](https://openaccess.thecvf.com/content_CVPR_2019/html/Hou_Learning_a_Unified_Classifier_Incrementally_via_Rebalancing_CVPR_2019_paper.html) : LUCIR develops a framework for incrementally learning a unified classifier for the continual image classification tasks. The total loss consists of three terms: (1) the cross-entropy loss on the new classes samples; (2) the distillation loss on the features extracted by the old model and those by the new one; (3) the margin-ranking loss on the reserved samples for old classes. In our re-implementation, we compute the cross-entropy loss for new entity types, the distillation loss for all entity types, and the margin-ranking loss for Other-class samples instead of the reserved samples.
+* [PODNet](https://link.springer.com/chapter/10.1007/978-3-030-58565-5_6) : PODNet has a similar idea to LUCIR to combat the catastrophic forgetting in continual learning for image classification. The total loss consists of the classification loss and distillation loss. To compute the distillation loss, PodNet constrains the output of each intermediate convolutional layer while LUCIR only considers the final feature embeddings. For classification, PODNet used NCA loss instead of the cross-entropy loss. In our re-implementation, we constrain the output of each intermediate stage of BERT as PODNet constrains each stage of a ResNet.
 
-<img src="imgs/other-class.png" width = "600" alt="Other-Class in Continual NER" align=center />
+<img src="imgs/other-class.png" width = "400" alt="Other-Class in Continual NER" align=center />
 
-<img src="imgs/model_architecture.png" width = "1200" alt="The architecture of the proposed method (CFNER)" align=center />
+<img src="imgs/model_architecture.png" width = "600" alt="The architecture of the proposed method (CFNER)" align=center />
 
 ## Overview of the directory
 - *config/* : the directory of configurations for each models
