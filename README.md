@@ -49,6 +49,8 @@ torch              1.12.1+cu116
 transformers       4.14.1
 ```
 
+If you want to repreduce the results or use the same data splits of our paper, please download the *./datasets/* foloder in this [link](https://drive.google.com/file/d/1e4_JImxed67x9Jx64yChPdG8SnHSIQKY/view?usp=sharing) and skip Step 1 and 2.
+
 ### Step 1: Prepare your data
 Download data and preprocess them as the following format (word + \t + NER_tag):
 ```
